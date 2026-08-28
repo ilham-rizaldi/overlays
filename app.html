@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Connect Strava and select a cycling activity for an Overlays creation.">
+  <meta name="theme-color" content="#11120f">
+  <title>Overlays — Choose a ride</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body class="app-body">
+  <header class="site-header app-header">
+    <a class="brand" href="index.html" aria-label="Overlays home"><span class="brand-mark" aria-hidden="true"></span>Overlays</a>
+    <span class="beta-badge">PRIVATE BETA</span>
+  </header>
+
+  <main class="app-shell">
+    <section class="app-intro">
+      <div>
+        <p class="eyebrow">CREATE FROM YOUR ACTIVITY</p>
+        <h1>Choose a ride.</h1>
+        <p id="intro-copy">Connect Strava to load activities already synced from your bike computer, phone, or smartwatch.</p>
+      </div>
+      <div class="connection-actions">
+        <a class="button strava-button" id="connect-button" href="/auth/strava">Connect with Strava</a>
+        <button class="quiet-button" id="disconnect-button" type="button" hidden>Disconnect</button>
+      </div>
+    </section>
+
+    <p class="app-message" id="app-message" role="status" aria-live="polite">Checking connection…</p>
+
+    <section class="activity-layout" id="activity-workspace" hidden>
+      <div>
+        <div class="list-heading">
+          <h2>Recent activities</h2>
+          <button class="quiet-button" id="refresh-button" type="button">Refresh</button>
+        </div>
+        <div class="activity-list" id="activity-list"></div>
+      </div>
+
+      <aside class="ride-preview" id="ride-preview">
+        <p class="eyebrow">SELECTED RIDE</p>
+        <div class="empty-preview" id="empty-preview">
+          <span class="route-placeholder" aria-hidden="true">⌁</span>
+          <p>Select an activity to preview its available overlay data.</p>
+        </div>
+        <div id="ride-details" hidden>
+          <span class="sport-badge" id="ride-sport"></span>
+          <h2 id="ride-name"></h2>
+          <p id="ride-date"></p>
+          <div class="preview-metrics" id="preview-metrics"></div>
+          <p class="data-note" id="stream-status">Checking detailed ride data…</p>
+          <button class="button" id="continue-button" type="button" disabled>Continue to editor</button>
+          <p class="data-note">The photo/video overlay editor is the next build stage.</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Overlays requests read-only access to your own Strava activities.</p>
+    <nav aria-label="Legal navigation">
+      <a href="privacy.html">Privacy</a>
+      <a href="deletion.html">Data deletion</a>
+      <a href="mailto:rizael.loo@gmail.com">Support</a>
+    </nav>
+  </footer>
+</body>
+</html>
